@@ -34,4 +34,4 @@ class Book(BookBase):
     author_id: int
 
     class Config:
-        orm_mod = True
+        orm_mode = True

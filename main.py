@@ -35,12 +35,12 @@ def create_author(
     return crud.author_create(db=db, author=author)
 
 
-@app.get("/books/", response_model=schemas.Book)
+@app.get("/books/", response_model=list[schemas.Book])
 def read_books(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     return crud.get_books(db=db, skip=skip, limit=limit)
 
 
-@app.get("/books_by_author/{author_id}", response_model=schemas.Book)
+@app.get("/books_by_author/{author_id}", response_model=list[schemas.Book])
 def read_books_by_author_id(author_id: int, db: Session = Depends(get_db)):
     return crud.get_book_by_author_id(db=db, author_id=author_id)
 
